@@ -281,10 +281,10 @@ function getIndexOf(str, letter) {
  *  12345, 6    => false
  */
 function isContainNumber(num, digit) {
-  const strNum = num.toString();
   let result = false;
-  for (let i = 0; i < strNum.length; i += 1) {
-    if (+strNum[i] === digit) {
+
+  for (let i = num; i > 0; i = Math.trunc(i / 10)) {
+    if (i % 10 === digit) {
       result = true;
     }
   }
