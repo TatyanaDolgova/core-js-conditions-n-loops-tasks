@@ -70,9 +70,10 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
 function canQueenCaptureKing(queen, king) {
-  console.debug(queen, king);
-  if ((queen.x - queen.y) === (king.x - king.y) ||
-  (queen.x + queen.y) === (king.x + king.y)) {
+  if (
+    queen.x - queen.y === king.x - king.y ||
+    queen.x + queen.y === king.x + king.y
+  ) {
     return true;
   }
 
@@ -126,12 +127,12 @@ function convertToRomanNumerals(num) {
   const tens = Math.floor(num / 10);
   const units = num % 10;
   let result = '';
-  for(let i = 0; i < tens; i += 1) {
+  for (let i = 0; i < tens; i += 1) {
     result += 'X';
   }
 
   if (units < 4) {
-    for(let i = 0; i < units; i += 1) {
+    for (let i = 0; i < units; i += 1) {
       result += 'I';
     }
   } else if (units === 4) {
@@ -141,7 +142,7 @@ function convertToRomanNumerals(num) {
   } else if (units > 5 && units < 9) {
     const remains = units - 5;
     result += 'V';
-    for(let i = 0; i < remains; i += 1) {
+    for (let i = 0; i < remains; i += 1) {
       result += 'I';
     }
   } else if (units === 9) {
