@@ -400,9 +400,8 @@ function getSpiralMatrix(size) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(matrix) {
+function rotateMatrix(/* matrix */) {
   throw new Error('Not implemented');
-
 }
 
 /**
@@ -420,12 +419,12 @@ function rotateMatrix(matrix) {
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
 function quickSort(arr) {
-  if (arr.length == 0) return [];
-  let a = [],
-    b = [],
-    p = arr[0];
+  if (arr.length === 0) return [];
+  const a = [];
+  const b = [];
+  const p = arr[0];
 
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i += 1) {
     if (arr[i] < p) {
       a[a.length] = arr[i];
     } else {
@@ -436,14 +435,13 @@ function quickSort(arr) {
 }
 
 function sortByAsc(array) {
-  let result = quickSort(array);
-  for (let i = 0; i < array.length; i++) {
-    array[i] = result[i];
+  const result = quickSort(array);
+  const temp = array;
+  for (let i = 0; i < array.length; i += 1) {
+    temp[i] = result[i];
   }
   return array;
 }
-
-console.log(sortByAsc([-2, 9, 5, -3]));
 
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
