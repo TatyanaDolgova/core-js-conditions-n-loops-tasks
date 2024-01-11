@@ -401,16 +401,17 @@ function getSpiralMatrix(size) {
  *  ]                 ]
  */
 function rotateMatrix(matrix) {
-  let len = Math.floor(matrix.length / 2);
+  const len = Math.floor(matrix.length / 2);
   const n = matrix.length;
+  const copyMatrix = matrix;
 
-  for(let i = 0; i < len; i+= 1) {
-    for(let j = i; j < n - 1 - i; j++) {
-      let temp = matrix[i][j];
-      matrix[i][j] = matrix[n - 1 - j][i];
-      matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
-      matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
-      matrix[j][n - 1 - i] = temp;
+  for (let i = 0; i < len; i += 1) {
+    for (let j = i; j < n - 1 - i; j += 1) {
+      const temp = copyMatrix[i][j];
+      copyMatrix[i][j] = copyMatrix[n - 1 - j][i];
+      copyMatrix[n - 1 - j][i] = copyMatrix[n - 1 - i][n - 1 - j];
+      copyMatrix[n - 1 - i][n - 1 - j] = copyMatrix[j][n - 1 - i];
+      copyMatrix[j][n - 1 - i] = temp;
     }
   }
   return matrix;
